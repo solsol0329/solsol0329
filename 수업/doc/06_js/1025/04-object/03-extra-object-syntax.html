@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 단축속성
+    const name = 'kim'
+    const age = 30
+
+    const user = { 
+      name, 
+      age, 
+      myFunc() {
+        return 'hello'
+      }
+    }
+    // 구조분해 할당
+    function printInfo({ firstName, id }){
+      console.log(firstName, id)
+    }
+
+
+
+    const userInfo = {
+      firstName : 'alice',
+      id : 'alice123',
+      email : 'alice123@com'
+    }
+    printInfo(userInfo)
+
+    const { firstName } = userInfo
+    const { fristName, id, email } = userInfo
+
+    console.log(userInfo.address?.street)
+
+  </script>
+</body>
+
+</html>

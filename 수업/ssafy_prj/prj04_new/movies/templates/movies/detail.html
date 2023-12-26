@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<h1>DETAIL PAGE</h1>
+<form action="{% url "movies:detail" article.pk %}" method="POST">
+  {% csrf_token %}
+  {% if article.image %}
+    <img src="{{article.image.url}}" alt="img">
+  {% endif %}
+  <h2>{{article.title}}</h2>
+  <p>{{article.content}}</p>
+</form>
+<hr>
+<form action="{% url "movies:update" article.pk %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="UPDATE">
+</form>
+<form action="{% url "movies:delete" article.pk %}" method="POST">
+  {% csrf_token %}
+  <input type="submit" value="DELETE">
+</form>
+<hr>
+<form action="{% url "movies:index" %}">
+  <input type="submit" value="BACK">
+</form>
+
+
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,24 @@
+<template>
+  <div class="border">
+    <h3>자식페이지</h3>
+    <p>이름: {{ child.name }}</p>
+    <p>나이: {{ child.age }}</p>
+    <p>용돈: {{ child.balance }}</p>
+    <button @click="updateBalance">용돈주세요</button>
+  </div>
+</template>
+
+<script setup>
+const props = defineProps({
+  child: Object,
+})
+// console.log(props.child)
+const emit = defineEmits(['giveMeAllowance'])
+const updateBalance = function() {
+  emit('giveMeAllowance', props.child)
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>

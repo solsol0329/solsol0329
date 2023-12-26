@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+<h1>INDEX PAGE</h1>
+
+{% for movie in movies %}
+  <form action="{% url "movies:detail" movie.pk %}" >
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4" >
+          {% if movie.image %}
+            <img src="{{movie.image.url}}" class="card-img-top" alt="{{movie.pk}}image">
+          {% endif %}
+        </div> 
+        <div class="col-md-8"> 
+          <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <p class="card-text">{{movie.description}}</p>
+          </div>
+          <div class="card-footer">  
+            <small class="text-body-secondary">{{movie.created_at}}</small>
+            <input type="submit" value="Detail">
+          </div>
+        </div>
+      </div> 
+    </div> 
+  </form>
+{% endfor %}
+
+{% endblock content %}
+
+
+

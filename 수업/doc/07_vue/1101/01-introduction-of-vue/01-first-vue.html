@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ message }}</h1> <!-- 자동으로 언래핑-->
+    <h1>{{ message }}</h1> <!-- 자동으로 언래핑-->
+    <button @click="count *= 2">{{ count }}</button>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue
+    const app = createApp({
+      setup() {
+        const message = ref('hello vue!')  // 래핑
+        const count = ref(1)
+        console.log(message)
+        console.log(message.value)   //언래핑
+        return {
+          message,
+          count,
+        }
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

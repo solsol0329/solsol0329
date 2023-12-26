@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+   const user = {
+    name: 'Alice',
+    'key with space': true,
+    greeting : function () {
+      return 'hello'
+    }
+   }
+
+   console.log(user.name)
+   console.log(user['key with space'])
+   user.addr = '구미시'
+   console.log(user)
+   delete user.addr
+   console.log(user)
+   console.log(user.greeting())
+
+
+   const person = {
+    name: 'Alice',
+    greeting : function () {
+      return `Hello my name is ${this.name}`
+    }
+   }
+   console.log(person.greeting())
+  </script>
+</body>
+
+</html>

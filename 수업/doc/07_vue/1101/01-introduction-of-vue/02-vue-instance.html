@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <h1>{{ message }}</h1>
+    <h2>{{ scores }}</h2>
+    <button @click="increment">{{ count }}</button>
+    <h2>{{ avgOfScores }}</h2>
+    <button @click="cal_avg">평균</button>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref } = Vue 
+    const app = createApp({
+      setup() {
+        const count = ref(0)   // 선언
+        const message = ref('hello')
+        const avgOfScores = ref(null)
+        const scores = ref([1, 2, 3, 4, 5])
+        const cal_avg = function (){
+          const sum = scores.value.reduce((acc, item) => {
+            return acc + item
+          }, 0)
+          console.log(sum)
+          avgOfScores.value = sum / scores.value.length
+          console.log(avgOfScores.value)
+        }
+
+        const increment = function() {
+          count.value++
+        }
+        return {                // 반환
+          count, 
+          message,
+          scores,
+          increment,
+          avgOfScores,
+          cal_avg
+        }
+      }
+
+    })
+
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

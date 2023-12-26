@@ -1,0 +1,20 @@
+{% load static %}
+
+<nav class="navbar" style="background-color: #c5d9ed">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="navbar-brand">
+      <img src="{% static 'cinema.png' %}" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      SSAFY CINEMA
+    </a>
+    <button class="nav-link active" id="nav-index" data-bs-toggle="tab" data-bs-target="#nav-index" type="button" role="tab" aria-controls="nav-index" aria-selected="true" ><a href="{% url "movies:index" %}" >INDEX</a></button>
+    {% if request.user.is_authenticated %}
+      <button class="nav-link" id="nav-create-tab" data-bs-toggle="tab" data-bs-target="#nav-create" type="button" role="tab" aria-controls="nav-create" aria-selected="false"><a href="{% url "movies:create" %}">CREATE</a></button>
+      <button class="nav-link" id="nav-update-tab" data-bs-toggle="tab" data-bs-target="#nav-update" type="button" role="tab" aria-controls="nav-update" aria-selected="false"><a href="{% url "accounts:update" %}">회원정보수정</a></button>
+      <button class="nav-link" id="nav-change_password-tab" data-bs-toggle="tab" data-bs-target="#nav-change_password" type="button" role="tab" aria-controls="nav-change_password" aria-selected="false" ><a href="{% url "accounts:change_password" %}">비밀번호변경</a></button>
+      <button class="nav-link" id="nav-logout-tab" data-bs-toggle="tab" data-bs-target="#nav-logout" type="button" role="tab" aria-controls="nav-logout" aria-selected="false" ><a href="{% url "accounts:logout" %}">로그아웃</a></button>
+    {% else %}
+      <button class="nav-link" id="nav-login-tab" data-bs-toggle="tab" data-bs-target="#nav-login" type="button" role="tab" aria-controls="nav-login" aria-selected="false"><a href="{% url "accounts:login" %}">로그인</a></button>
+      <button class="nav-link" id="nav-signup-tab" data-bs-toggle="tab" data-bs-target="#nav-signup" type="button" role="tab" aria-controls="nav-signup" aria-selected="false"><a href="{% url "accounts:signup" %}">회원가입</a></button>
+    {% endif %}  
+  </div>
+</nav>

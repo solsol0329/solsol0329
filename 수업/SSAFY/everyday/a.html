@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 자식 선택자는 지정된 요소의 자식인 요소에게만 스타일이 적용된다.
+        자손 선택자는 지정된 요소의 하위 항목 모두에게 스타일이 정의된다. */
+        body > div:nth-child(1) > div{
+            margin-left: 30px;
+            color: blue;
+        }
+        body > div{
+            font-size: large;
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <div>자식
+        <div>손자</div>
+    </div>
+    <div>
+        자식
+    </div>
+</body>
+</html>

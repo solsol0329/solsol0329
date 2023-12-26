@@ -1,0 +1,2 @@
+TIL를 gitlab에 저장소 만들기
+어제 오늘 한 TIL를 gitlab 저장소에 push하기

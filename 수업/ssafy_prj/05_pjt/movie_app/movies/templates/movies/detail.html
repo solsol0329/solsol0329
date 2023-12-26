@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+<h1>DETAIL PAGE</h1>
+<form action="{% url "movies:detail" movie.pk %}" method="POST">
+  {% csrf_token %}
+  {% if movie.image %}
+    <img src="{{movie.image.url}}" alt="img">
+  {% endif %}
+  <h2>{{movie.title}}</h2>
+  <p>{{movie.description}}</p>
+  <p>장르 : {{movie.genre}}</p>
+  <p>평점 : {{movie.score}}</p>
+</form>
+<hr>
+<button type="button" class="btn btn-secondary", onclick="location.href='/movies/update/{{ movie.pk }}/'">UPDATE</button>
+<button type="button" class="btn btn-danger", onclick="location.href='/movies/delete/{{ movie.pk }}/'">DELETE</button>
+
+<hr>
+<h3>댓글 목록</h3>
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      {% for comment in comments %}
+        <li class="list-group-item">
+           
+              {{comment.content}}
+            
+              {% if request.user == comment.user %}
+              <form action="{% url "movies:comment_delete" movie.pk comment.pk %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm pull-right">delete</button>
+              </form>
+              {% endif %}
+          
+        </li>
+      {% endfor %}
+  </div>
+{% if request.user.is_authenticated %}
+  <form action="{% url "movies:comment_create" movie.pk %}" method="POST">
+    {% csrf_token %}
+    {{comment_form}}
+    <input type="submit" value="제출">
+  </form>
+{% else %}
+  <p>로그인 후 작성 가능합니다.</p>
+{% endif %}
+
+<hr>
+<button type="button" class="btn btn-primary", onclick="location.href='/movies/'">BACK</button>
+
+{% endblock content %}
+
+
+
+

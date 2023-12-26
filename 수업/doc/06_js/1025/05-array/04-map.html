@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const numbers = [1, 2, 3]
+    const doubleNum = numbers.map((item) => {
+      return item * 2
+    })
+    console.log(doubleNum)
+
+    // filter
+    const products = [
+      { name: 'banana', type: 'fruit'},
+      { name: 'apple', type: 'fruit'},
+      { name: 'carrot', type: 'vegetable'},
+      { name: 'banana', type: 'vegetable'},
+    ]
+    const fruits = products.filter((item) => {
+      return item.type === 'fruit'
+    })
+    console.log(fruits)
+
+    // find
+    const product = products.find((item) => {
+      return item.name === 'banana'
+    })
+    console.log(product)
+
+    // reduce
+    const arr  = [1, 2, 3, 4, 5]
+    const result = arr.reduce((acc, item) => {
+      return acc + item
+    }, 0)
+    console.log(result)
+
+  </script>
+</body>
+
+</html>

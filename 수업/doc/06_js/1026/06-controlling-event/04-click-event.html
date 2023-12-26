@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">버튼</button>
+  <p>클릭횟수 : <span id="counter">0</span></p>
+
+  <script>
+    // 1. 초기값 할당
+    let cnt = 0
+    // 2. 버튼 선택
+    const btn = document.querySelector('#btn')
+    // 3. 콜백
+    const clickHandler = function () {
+      cnt++   // cnt += 1
+      const spanTag =  document.querySelector('#counter')
+      spanTag.textContent = cnt
+    }
+    // 4. 버튼에 핸들러 부착
+    btn.addEventListener('click', clickHandler)
+  </script>
+</body>
+
+</html>
